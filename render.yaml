@@ -14,7 +14,7 @@ services:
     autoDeploy: true
 
   # Frontend Static Site
-  - type: static
+  - type: static_site
     name: inventory-frontend
     plan: free
     buildCommand: npm install && npm run build
