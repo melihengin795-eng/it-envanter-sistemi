@@ -13,9 +13,9 @@ services:
     healthCheckPath: /api/dashboard
     autoDeploy: true
 
+staticSites:
   # Frontend Static Site
-  - type: static
-    name: inventory-frontend
+  - name: inventory-frontend
     plan: free
     buildCommand: npm install && npm run build
     staticPublishPath: ./dist
@@ -32,4 +32,3 @@ services:
         source: /*
         destination: /index.html
     autoDeploy: true
-
