@@ -15,7 +15,12 @@ services:
 
 staticSites:
   # Frontend Static Site
+<<<<<<< HEAD
   - name: inventory-frontend
+=======
+  - type: static_site
+    name: inventory-frontend
+>>>>>>> 1a60109fd33f75152e102d15e7f36e1a37233d2b
     plan: free
     buildCommand: npm install && npm run build
     staticPublishPath: ./dist
