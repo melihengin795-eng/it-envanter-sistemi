@@ -1,0 +1,14 @@
+{
+  "appId": "com.malhotra.envanter",
+  "appName": "Malhotra Envanter",
+  "webDir": "dist",
+  "server": {
+    "androidScheme": "https",
+    "allowNavigation": [
+      "*"
+    ]
+  },
+  "android": {
+    "allowMixedContent": true
+  }
+}
