@@ -1,31 +1,28 @@
 services:
-  # Backend API Service
   - type: web
     name: inventory-api
     runtime: python
-    plan: free
+    repo: https://github.com/melihegram12/it-envanter-sistemi
+    branch: main
+    rootDir: backend
     buildCommand: pip install -r requirements.txt
     startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
-    rootDir: backend
     envVars:
       - key: PYTHON_VERSION
         value: "3.11.0"
-    healthCheckPath: /
     autoDeploy: true
 
-staticSites:
-  # Frontend Static Site
-  - name: inventory-frontend
+  - type: web
+    name: inventory-frontend
+    runtime: static
+    repo: https://github.com/melihegram12/it-envanter-sistemi
+    branch: main
+    rootDir: frontend
     buildCommand: npm install && npm run build
     staticPublishPath: dist
-    rootDir: frontend
     envVars:
       - key: VITE_API_URL
         value: https://inventory-api.onrender.com/api
-    headers:
-      - path: /*
-        name: Cache-Control
-        value: public, max-age=0, must-revalidate
     routes:
       - type: rewrite
         source: /*
